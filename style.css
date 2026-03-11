@@ -1,0 +1,206 @@
+/* --- ESTILO GENERAL --- */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: white;
+  color: #1E1E1E;
+}
+
+/* --- ESTILO GENERAL --- */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: white;
+  color: #1E1E1E;
+}
+
+header {
+  text-align: center;
+  padding: 20px 0;
+  
+  /* --- FONDO CON TU IMAGEN --- */
+  background-image: url("img/fondomenu.png"); 
+  background-size: 300px; 
+  background-repeat: repeat;
+  background-position: center;
+
+  border-bottom: none; 
+  line-height: 0; 
+  box-shadow: inset 0 0 50px rgba(0,0,0,0.05); 
+}
+
+header img {
+  height: 150px;
+  width: auto;
+  max-width: 90%; /* En escritorio se mantiene igual */
+  display: inline-block; 
+  vertical-align: middle;
+  filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.1));
+  transition: all 0.3s ease; /* Para que el cambio a móvil sea suave */
+}
+
+.hero {
+  padding: 0;
+  margin-top: -1px; 
+  background: white;
+  border-top: 8px solid #e6b93f; 
+  border-bottom: 8px solid #e6b93f;
+}
+
+/* --- NUEVO ESTILO DE FLECHAS: BLANCAS Y ELEGANTES --- */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-image: none; 
+    background-color: transparent; 
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+    width: 35px; 
+    height: 35px;
+    border-top: 6px solid white;    
+    border-right: 6px solid white;  
+    transition: all 0.3s ease;
+}
+
+.carousel-control-prev-icon {
+    transform: rotate(-135deg);
+    margin-left: 20px; 
+}
+
+.carousel-control-next-icon {
+    transform: rotate(45deg);
+    margin-right: 20px; 
+}
+
+.carousel-control-prev:hover .carousel-control-prev-icon,
+.carousel-control-next:hover .carousel-control-next-icon {
+    border-color: #FF7A00; 
+    transform: rotate(-135deg) scale(1.1); 
+}
+
+.carousel-control-next:hover .carousel-control-next-icon {
+    transform: rotate(45deg) scale(1.1);
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 10%;
+    opacity: 1;
+}
+
+.hero img, .carousel-item img {
+  width: 100%;
+  height: 520px; 
+  object-fit: cover;
+}
+
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.5); 
+  border-radius: 15px;
+  padding: 25px;
+  bottom: 20%;
+}
+
+/* --- SECCION CON IMAGEN DE FONDO --- */
+.menu-section {
+  background-image: url("img/fondomenu.png");
+  background-size: cover;
+  background-position: center;
+  max-width: 1200px;
+  margin: 60px auto;
+  border-radius: 20px;
+  position: relative;
+  padding: 80px 20px;
+  border: 4px solid #FF7A00; 
+}
+
+/* --- AJUSTE DEL BOTÓN PEDIR --- */
+/* --- BOTÓN PEDIR: GRANDE Y LLAMATIVO --- */
+.btn-pedir {
+  position: absolute;
+  top: -28px; /* Lo bajamos un poco más para compensar el nuevo tamaño */
+  left: 50%;
+  transform: translateX(-50%);
+  background: #FF7A00;
+  color: white;
+  
+  /* --- TAMAÑO --- */
+  padding: 16px 40px;    /* Más alto y mucho más ancho */
+  font-size: 1.2rem;     /* Letra más grande y legible */
+  border-radius: 50px;   /* Redondeado total (estilo cápsula) */
+  
+  text-decoration: none;
+  font-weight: 900;      /* Letra extra negrita */
+  text-transform: uppercase; 
+  letter-spacing: 1.5px;
+  z-index: 100;
+  
+  /* Sombra más profunda para que parezca que flota */
+  box-shadow: 0 8px 20px rgba(255, 122, 0, 0.4);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* --- EFECTO AL PASAR EL MOUSE O TOCAR --- */
+.btn-pedir:hover {
+  background: #e66e00;
+  transform: translateX(-50%) scale(1.05); /* Se agranda un poquito más al tocarlo */
+  box-shadow: 0 10px 25px rgba(255, 122, 0, 0.6);
+  color: white;
+}
+
+/* Ajuste para que en móvil no se vea gigantesco pero siga siendo grande */
+@media (max-width: 768px) {
+  .btn-pedir {
+    padding: 14px 32px;
+    font-size: 1rem;
+    top: -25px;
+  }
+}
+
+.menu-outer-wrapper {
+  border: none; 
+  background: transparent;
+  padding: 0;
+}
+
+.menu-wrapper {
+  padding: 12px;
+  background: #e6b93f;
+  border-radius: 30px;
+  margin: 0; 
+}
+
+.menu-border {
+  padding: 10px;
+  background: #fdd55c;
+  border-radius: 25px;
+}
+
+#menu {
+  background: white;
+  border-radius: 20px;
+  padding: 60px 40px;
+  text-align: center;
+}
+
+#menu h2 { margin-bottom: 40px; }
+.menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; }
+.menu-card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
+.menu-card img { width: 100%; height: 170px; object-fit: cover; }
+.menu-card h3 { margin: 15px 0 5px 0; }
+.menu-card p { margin-bottom: 15px; font-weight: bold; }
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  /* Cambio solicitado: logo más pequeño y con margen para que no roce */
+  header img {
+    height: 100px;  /* Altura reducida en móvil */
+    max-width: 75%; /* Ancho máximo reducido para dejar espacio a los lados */
+  }
+  
+  .menu-outer-wrapper { 
+    margin: 0 10px; 
+    border-width: 2px; 
+  }
+  #menu { padding: 40px 20px; }
+}
