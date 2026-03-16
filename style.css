@@ -193,42 +193,63 @@ header img {
 .menu-arrow.prev { left: 0px; }
 .menu-arrow.next { right: 0px; }
 
-/* --- 11. RESPONSIVE MÓVIL (TÁCTIL REACTIVADO) --- */
+/* --- 11. RESPONSIVE MÓVIL (FORMATO LIBRO) --- */
 @media (max-width: 768px) {
-  .carousel-caption {
-    padding: 15px 20px;
-    max-width: 90%;
-    bottom: 10%;
-  }
-
-  .carousel-caption h1 { font-size: 1.5rem; }
-  .carousel-caption p { font-size: 1rem; }
-
   .menu-section { 
     max-width: 98%; 
-    padding: 40px 10px; 
+    padding: 40px 10px; /* Recuperamos espacio para las flechas */
+  }
+
+  #menu {
+    padding: 40px 15px 20px;
+    height: auto;
+    overflow: hidden; /* Mantenemos el recorte para que sea un libro */
   }
   
   .menu-grid {
-    overflow-x: auto; /* Reactiva el deslizamiento con el dedo */
-    scrollbar-width: none; /* Oculta barra en Firefox */
-    grid-auto-columns: calc(50% - 10px);
-    grid-template-rows: repeat(2, 310px); 
-    gap: 12px;
+    display: grid;
+    /* Solo 1 fila en móvil para que las tarjetas no se estiren hacia abajo */
+    grid-template-rows: 320px; 
+    /* 2 tarjetas por "página" */
+    grid-auto-columns: calc(50% - 10px); 
+    grid-auto-flow: column;
+    /* Reactivamos el scroll táctil y ocultamos la barra */
+    overflow-x: auto; 
+    scrollbar-width: none;
+    gap: 15px;
+    padding: 10px 5px;
+    scroll-snap-type: x mandatory; /* Hace que se detenga justo en la tarjeta */
   }
 
-  .menu-grid::-webkit-scrollbar {
-    display: none; /* Oculta barra en Chrome/Safari */
+  .menu-grid::-webkit-scrollbar { display: none; }
+
+  .menu-card {
+    scroll-snap-align: start;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
   }
 
-  .menu-card img { height: 130px; }
-  .menu-card h3 { font-size: 1.2rem; }
-  .menu-card p { font-size: 1.3rem; padding-bottom: 15px; }
+  .menu-card img { 
+    height: 140px; /* Imagen con buen tamaño */
+    object-fit: cover;
+  }
+
+  .menu-card h3 { 
+    font-size: 1.1rem;
+    margin: 15px 5px 5px;
+  }
+
+  /* REACTIVAMOS LAS FLECHAS */
+  .menu-arrow { 
+    display: flex !important; 
+    width: 35px; 
+    height: 35px; 
+    background: rgba(255, 122, 0, 0.9);
+  }
   
-  .menu-arrow { width: 45px; height: 45px; }
   .menu-arrow.prev { left: -5px; }
   .menu-arrow.next { right: -5px; }
-  
-  header img { height: 100px; }
-  .carousel-item img { height: 350px; }
+
+  header img { height: 90px; }
 }
