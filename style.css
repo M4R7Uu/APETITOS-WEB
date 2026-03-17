@@ -1,7 +1,5 @@
 /* --- 1. ESTILO GENERAL --- */
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
@@ -28,43 +26,11 @@ header img {
   width: auto;
   max-width: 90%;
   filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.1));
-  transition: all 0.3s ease;
 }
 
 /* --- 3. HERO / CARRUSEL --- */
-.hero {
-  border-top: 8px solid #e6b93f; 
-  border-bottom: 8px solid #e6b93f;
-}
-
-.hero img, .carousel-item img {
-  width: 100%;
-  height: 520px; 
-  object-fit: cover;
-}
-
-.carousel-caption {
-  background-color: rgba(0, 0, 0, 0.6); 
-  border-radius: 25px; 
-  padding: 25px 40px;
-  max-width: 70%;
-  margin: 0 auto;
-  bottom: 20%; 
-}
-
-.carousel-caption h1 {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: white;
-  margin-bottom: 10px;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-}
-
-.carousel-caption p {
-  font-size: 1.3rem;
-  color: white;
-  margin: 0;
-}
+.hero { border-top: 8px solid #e6b93f; border-bottom: 8px solid #e6b93f; }
+.hero img, .carousel-item img { width: 100%; height: 520px; object-fit: cover; }
 
 /* --- 4. SECCIÓN DEL MENÚ (FORMATO LIBRO) --- */
 .menu-section {
@@ -72,252 +38,144 @@ header img {
   background-size: cover;
   background-position: center;
   max-width: 95%; 
-  margin: 40px auto;
+  margin: 40px auto 0;
   border-radius: 20px;
   position: relative;
   padding: 60px 20px; 
   border: 4px solid #FF7A00; 
 }
 
-.menu-wrapper {
-  padding: 12px;
-  background: #e6b93f;
-  border-radius: 30px;
-}
-
-.menu-border {
-  padding: 10px;
-  background: #fdd55c;
-  border-radius: 25px;
-}
+.menu-wrapper { padding: 12px; background: #e6b93f; border-radius: 30px; }
+.menu-border { padding: 10px; background: #fdd55c; border-radius: 25px; }
 
 #menu {
   background: white;
   border-radius: 20px;
-  padding: 60px 40px; 
+  padding: 60px 20px 80px; 
   text-align: center;
-  width: 100%;
   position: relative;
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  overflow: hidden;
+  overflow: visible; /* Importante para que no se corten las sombras */
 }
 
 /* --- 5. BOTÓN PEDIR --- */
 .btn-pedir {
-  position: absolute;
-  top: -28px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #FF7A00;
-  color: white !important;
-  padding: 16px 40px;
-  font-size: 1.2rem;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: 900;
-  text-transform: uppercase; 
-  z-index: 100;
+  position: absolute; top: -28px; left: 50%; transform: translateX(-50%);
+  background: #FF7A00; color: white !important; padding: 16px 40px;
+  font-size: 1.2rem; border-radius: 50px; text-decoration: none;
+  font-weight: 900; text-transform: uppercase; z-index: 100;
   box-shadow: 0 8px 20px rgba(255, 122, 0, 0.4);
-  transition: transform 0.2s ease;
 }
 
-.btn-pedir:hover {
-  transform: translateX(-50%) scale(1.05);
-}
-
-/* --- 6. GRID DE FLUJO CONTINUO --- */
-.menu-slider-wrapper {
-  position: relative;
-  width: 100%;
-}
-
+/* --- 6. GRID DE FLUJO CONTINUO (ESTRUCTURA 2x4) --- */
 .menu-grid { 
   display: grid;
-  grid-template-rows: repeat(2, 480px); 
-  grid-auto-columns: calc(25% - 20px);
+  /* Forzamos las 2 filas exactas en escritorio */
+  grid-template-rows: repeat(2, 450px); 
+  /* 4 columnas por vista (25% menos el gap) */
+  grid-auto-columns: calc(25% - 18.75px); 
   grid-auto-flow: column;
   gap: 25px;
   overflow-x: hidden; 
   scroll-behavior: smooth; 
   width: 100%;
-  padding: 20px 5px;
-  -webkit-overflow-scrolling: touch;
+  padding: 15px 5px;
 }
 
-/* --- 7. CARDS --- */
+/* --- 7. CARDS (RESALTE DE CONTENIDO) --- */
 .menu-card { 
-  background: white; 
-  border-radius: 20px; 
-  overflow: hidden; 
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1); 
-  display: flex;
-  flex-direction: column;
+  background: white; border-radius: 20px; overflow: hidden; 
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1); 
+  display: flex; flex-direction: column; 
   height: 100%; 
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .menu-card img { 
   width: 100%; 
-  height: 260px; 
+  height: 220px; /* Reducido para dar espacio al texto */
   object-fit: cover; 
 }
 
-.menu-card h3 {
-  font-size: 1.5rem;
-  margin: 20px 15px 10px;
+.menu-card h3 { 
+  font-size: 1.3rem; 
+  margin: 15px 15px 5px; 
   font-weight: bold;
+  line-height: 1.2;
 }
 
-.menu-card p {
-  color: #FF7A00;
-  font-weight: 900;
-  font-size: 1.8rem;
+.menu-card p { 
+  color: #FF7A00; 
+  font-weight: 900; 
+  font-size: 1.6rem; 
   margin-top: auto; 
-  padding-bottom: 30px;
+  padding-bottom: 25px; 
 }
 
-/* --- 8. FLECHAS DE NAVEGACIÓN --- */
+/* --- 8. FLECHAS --- */
 .menu-arrow {
-  background: #FF7A00;
-  color: white;
-  border: none;
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 20;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute; 
-  top: 50%;
-  transform: translateY(-50%);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  background: #FF7A00; color: white; border: none; width: 55px; height: 55px; border-radius: 50%;
+  position: absolute; top: 50%; transform: translateY(-50%); z-index: 20;
 }
+.menu-arrow.prev { left: -25px; }
+.menu-arrow.next { right: -25px; }
 
-.menu-arrow.prev { left: 0px; }
-.menu-arrow.next { right: 0px; }
+/* --- 9. CONTACTO (PODIO) --- */
+.contacto-restaurante { padding: 80px 20px; background-color: #fff; text-align: center; }
+.botones-contacto { display: flex; justify-content: center; align-items: flex-end; gap: 15px; max-width: 600px; margin: 0 auto; padding-top: 40px; }
+.btn-contacto { flex: 1; border-radius: 20px 20px 10px 10px; text-decoration: none; font-weight: bold; color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); opacity: 0; transform: translateY(50px); }
+.btn-contacto.aparecer { opacity: 1; transform: translateY(0); }
+.btn-contacto.whatsapp { background-color: #25D366; height: 160px; order: 2; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); }
+.btn-contacto.llamada { background-color: #FF7A00; height: 120px; order: 1; box-shadow: 0 10px 20px rgba(255, 122, 0, 0.3); }
+.btn-contacto.facebook { background-color: #1877F2; height: 120px; order: 3; box-shadow: 0 10px 20px rgba(24, 119, 242, 0.3); }
 
-/* --- 9. FOOTER <I-F> CODE (TU MARCA) --- */
-.footer-brand {
-  background-color: #1E1E1E;
-  padding: 40px 20px;
-  color: #fff;
-  border-top: 5px solid #FF7A00;
-  margin-top: 60px;
-}
+/* --- 10. FOOTER <I-F> CODE --- */
+.footer-brand { background-color: #1E1E1E; padding: 60px 20px; color: #fff; border-top: 5px solid #FF7A00; display: flex; justify-content: center; }
+.footer-content { max-width: 1200px; display: flex; flex-direction: column; align-items: center; gap: 25px; }
+.brand-credits { display: flex; align-items: center; gap: 20px; }
+.footer-logo { height: 65px; width: auto; filter: drop-shadow(0 0 8px rgba(255, 122, 0, 0.4)); }
+.brand-text { text-align: left; }
+.brand-text p { margin: 0; line-height: 1.4; }
+.brand-name { font-weight: bold; font-size: 1.4rem; letter-spacing: 1px; }
+.highlight-code { color: #FF7A00; }
+.digital-solutions { font-size: 0.9rem; color: #fdd55c; font-style: italic; }
+.contact-fast { display: flex; gap: 15px; margin-top: 5px; }
+.footer-link { color: #fff; text-decoration: none; font-size: 0.85rem; opacity: 0.7; border: 1px solid rgba(255,255,255,0.2); padding: 6px 18px; border-radius: 20px; transition: all 0.3s; }
 
-.footer-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
-
-.brand-credits {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.footer-logo {
-  height: 60px;
-  width: auto;
-  filter: drop-shadow(0 0 8px rgba(255, 122, 0, 0.4));
-}
-
-.brand-text p {
-  margin: 0;
-  line-height: 1.3;
-}
-
-.developed-by {
-  font-size: 0.8rem;
-  color: #888;
-}
-
-.brand-name {
-  font-weight: bold;
-  font-size: 1.3rem;
-  letter-spacing: 1px;
-}
-
-.highlight-code {
-  color: #FF7A00;
-}
-
-.digital-solutions {
-  font-size: 0.85rem;
-  color: #fdd55c;
-  font-style: italic;
-}
-
-.contact-fast {
-  display: flex;
-  gap: 15px;
-}
-
-.footer-link {
-  color: #fff;
-  text-decoration: none;
-  font-size: 0.85rem;
-  opacity: 0.6;
-  border: 1px solid rgba(255,255,255,0.2);
-  padding: 4px 12px;
-  border-radius: 15px;
-  transition: all 0.3s ease;
-}
-
-.footer-link:hover {
-  opacity: 1;
-  background: #FF7A00;
-  border-color: #FF7A00;
-}
-
-/* --- 10. RESPONSIVE MÓVIL --- */
+/* --- 11. RESPONSIVE MÓVIL (ESTRUCTURA 2x2) --- */
 @media (max-width: 768px) {
-  .menu-section { 
-    max-width: 98%; 
-    padding: 40px 10px; 
-  }
+  #menu { padding: 40px 10px 60px; }
 
-  #menu {
-    padding: 40px 15px 20px;
-  }
-  
   .menu-grid {
-    grid-template-rows: 320px; 
-    grid-auto-columns: calc(50% - 10px); 
+    /* Forzamos 2 filas en móvil */
+    grid-template-rows: repeat(2, 300px); 
+    /* 2 columnas por vista (50% menos el gap) */
+    grid-auto-columns: calc(50% - 7.5px); 
     overflow-x: auto; 
-    scrollbar-width: none;
     gap: 15px;
-    scroll-snap-type: x mandatory; 
+    scroll-snap-type: x mandatory;
   }
 
-  .menu-grid::-webkit-scrollbar { display: none; }
-
-  .menu-card img { height: 140px; }
-  .menu-card h3 { font-size: 1.1rem; }
-  .menu-card p { font-size: 1.4rem; }
-
-  .menu-arrow { 
-    width: 35px; 
-    height: 35px; 
+  .menu-card { 
+    scroll-snap-align: center;
+    opacity: 0; 
+    transform: translateY(20px); 
+    transition: all 0.5s ease; 
   }
-  
-  .menu-arrow.prev { left: -5px; }
-  .menu-arrow.next { right: -5px; }
+  .menu-card.visible { opacity: 1; transform: translateY(0); }
 
+  .menu-card img { height: 140px; } /* Ajuste clave para que quepan 2 filas */
+  .menu-card h3 { font-size: 1rem; margin: 10px 8px 5px; }
+  .menu-card p { font-size: 1.25rem; padding-bottom: 15px; }
+
+  .brand-credits { flex-direction: column; text-align: center; gap: 15px; }
+  .brand-text { text-align: center; }
   header img { height: 90px; }
+}
 
-  .brand-credits {
-    flex-direction: column;
-    text-align: center;
-    gap: 10px;
-  }
-
-  .footer-brand {
-    padding: 30px 10px;
-  }
+/* --- 12. ANIMACIÓN DE MONEDA --- */
+.logo-animado { animation: coinSpinJump 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+@keyframes coinSpinJump {
+  0% { transform: translateY(100px) rotateY(-180deg) scale(0.5); opacity: 0; }
+  100% { transform: translateY(0) rotateY(720deg) scale(1); opacity: 1; }
 }

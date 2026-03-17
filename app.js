@@ -1,28 +1,25 @@
+/**
+ * Lógica de Navegación y Animaciones - APETITOS WEB
+ * Desarrollado por <I-F> CODE
+ */
+
 let currentPage = 0;
 
 /**
- * Mueve el menú calculando dinámicamente el ancho del contenedor.
- * Al usar grid-auto-flow: column, el desplazamiento es por "bloques" de vista.
- * @param {number} direction - 1 para siguiente, -1 para anterior.
+ * Mueve el menú por bloques (páginas) y actualiza el estado de navegación.
  */
 function moveMenu(direction) {
     const grid = document.getElementById('menuGrid');
-    
-    // El ancho de una "página" es el ancho visible del contenedor blanco
+    if (!grid) return;
+
     const pageWidth = grid.getBoundingClientRect().width;
-    
-    // Calculamos el total de páginas dinámicamente
-    // scrollWidth es el ancho total de todas las tarjetas estiradas
     const totalPages = Math.ceil(grid.scrollWidth / pageWidth);
 
-    // Actualizamos el índice
     currentPage += direction;
 
-    // Evitamos desbordamientos
     if (currentPage < 0) currentPage = 0;
     if (currentPage >= totalPages) currentPage = totalPages - 1;
 
-    // Ejecutamos el scroll
     grid.scrollTo({
         left: pageWidth * currentPage,
         behavior: 'smooth'
@@ -32,30 +29,13 @@ function moveMenu(direction) {
 }
 
 /**
- * Mantiene la posición correcta si el usuario redimensiona la pantalla.
- */
-window.addEventListener('resize', () => {
-    const grid = document.getElementById('menuGrid');
-    if (grid) {
-        const pageWidth = grid.getBoundingClientRect().width;
-        // Reposicionamiento instantáneo sin animación
-        grid.scrollLeft = pageWidth * currentPage;
-        
-        // Recalcular flechas por si el cambio de tamaño altera el número de páginas
-        const totalPages = Math.ceil(grid.scrollWidth / pageWidth);
-        actualizarFlechas(totalPages);
-    }
-});
-
-/**
- * Ajusta la visibilidad de las flechas según la posición actual.
+ * Controla la opacidad y clics en las flechas.
  */
 function actualizarFlechas(totalPages) {
     const prevBtn = document.querySelector('.menu-arrow.prev');
     const nextBtn = document.querySelector('.menu-arrow.next');
     
     if (prevBtn && nextBtn) {
-        // Si solo hay una página, ocultamos ambas o las desactivamos
         const esPrimera = currentPage === 0;
         const esUltima = currentPage >= totalPages - 1;
 
@@ -67,15 +47,83 @@ function actualizarFlechas(totalPages) {
     }
 }
 
-// Inicialización
-document.addEventListener('DOMContentLoaded', () => {
+/**
+ * --- SISTEMA DE ANIMACIONES DINÁMICAS ---
+ */
+function initScrollAnimations() {
+    
+    // 1. ANIMACIÓN DE CARDS (Vertical y Horizontal)
+    const cards = document.querySelectorAll('.menu-card');
+    const cardObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            } else {
+                // Quitamos la clase para que se reinicie la animación al salir de vista
+                entry.target.classList.remove('visible');
+            }
+        });
+    }, { 
+        threshold: 0.15 // Se activa cuando el 15% del elemento es visible
+    });
+
+    cards.forEach(card => cardObserver.observe(card));
+
+    // 2. ANIMACIÓN DEL PODIO DE CONTACTO (Entrada y Salida)
+    const botonesContacto = document.querySelectorAll('.btn-contacto');
+    const contactoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('aparecer');
+            } else {
+                entry.target.classList.remove('aparecer');
+            }
+        });
+    }, { threshold: 0.3 });
+
+    botonesContacto.forEach(btn => contactoObserver.observe(btn));
+
+    // 3. ANIMACIÓN DE MONEDA (IFCODE SHIELD)
+    const footerLogo = document.querySelector('.footer-logo');
+    const logoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('logo-animado');
+                // La marca solo salta una vez para mantener el profesionalismo
+                logoObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    if (footerLogo) logoObserver.observe(footerLogo);
+}
+
+/**
+ * Eventos Globales
+ */
+
+window.addEventListener('resize', () => {
     const grid = document.getElementById('menuGrid');
     if (grid) {
-        // Esperamos un momento a que el navegador renderice el grid para calcular el scrollWidth
+        const pageWidth = grid.getBoundingClientRect().width;
+        grid.scrollLeft = pageWidth * currentPage;
+        
+        const totalPages = Math.ceil(grid.scrollWidth / pageWidth);
+        actualizarFlechas(totalPages);
+    }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const grid = document.getElementById('menuGrid');
+    
+    if (grid) {
         setTimeout(() => {
             const pageWidth = grid.getBoundingClientRect().width;
             const totalPages = Math.ceil(grid.scrollWidth / pageWidth);
             actualizarFlechas(totalPages);
-        }, 100);
+        }, 200);
     }
+
+    // Inicializar todo el sistema de observadores
+    initScrollAnimations();
 });
