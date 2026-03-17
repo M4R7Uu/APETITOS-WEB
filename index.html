@@ -4,118 +4,133 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apetitos - Sabores que alegran tu día</title>
-    <link rel="stylesheet" href="style.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="icon" type="image/png" href="logo/IFCODESHIELD.png">
 </head>
 <body>
 
-<header>
-    <img src="img/logo_apetitos.png" alt="Apetitos Logo">
-</header>
+    <header>
+        <img src="img/logo_apetitos.png" alt="Apetitos Logo">
+    </header>
 
-<section class="hero">
-    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4" class="d-block w-100" alt="Restaurante">
-                <div class="carousel-caption">
-                    <h1>Bienvenido a Apetitos</h1>
-                    <p>Sabores que alegran tu día</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="https://images.unsplash.com/photo-1555244162-803834f70033" class="d-block w-100" alt="Buffet">
-                <div class="carousel-caption">
-                    <h1>Eventos especiales</h1>
-                    <p>Disfruta con familia y amigos</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836" class="d-block w-100" alt="Comida">
-                <div class="carousel-caption">
-                    <h1>Comida para días especiales</h1>
-                    <p>Hecho con amor</p>
-                </div>
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-            <span class="carousel-control-next-icon"></span>
-        </button>
-    </div>
-</section>
-
-<section class="menu-section">
-    <a class="btn-pedir" href="https://wa.me/573105924616?text=Hola%20Apetitos,%20me%20gustaría%20hacer%20un%20pedido">
-        PEDIR
-    </a>
-
-    <div class="menu-outer-wrapper">
-        <div class="menu-wrapper">
-            <div class="menu-border">
-                <section id="menu">
-                    <h2>Menú</h2>
-                    
-                    <div class="menu-slider-wrapper">
-                        <button class="menu-arrow prev" onclick="moveMenu(-1)" aria-label="Anterior">&#10094;</button>
-
-                        <div class="menu-grid" id="menuGrid">
-                            
-                            <div class="menu-card">
-                                <img src="https://images.unsplash.com/photo-1628592102751-ba83b0314276?w=500" alt="Empanada">
-                                <h3>Empanada</h3>
-                                <p>$3.500</p>
-                            </div>
-
-                            <div class="menu-card">
-                                <img src="https://images.unsplash.com/photo-1541518763669-279f00edba14?w=500" alt="Carimañola">
-                                <h3>Carimañola</h3>
-                                <p>$4.000</p>
-                            </div>
-
-                            <div class="menu-card">
-                                <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=500" alt="Arepa de huevo">
-                                <h3>Arepa de huevo</h3>
-                                <p>$5.000</p>
-                            </div>
-
-                            <div class="menu-card">
-                                <img src="https://images.unsplash.com/photo-1553530666-ba11a7da3888?w=500" alt="Jugo de mora">
-                                <h3>Jugo de mora</h3>
-                                <p>$4.000</p>
-                            </div>
-
-                            <div class="menu-card">
-                                <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=500" alt="Almuerzo seco">
-                                <h3>Almuerzo seco</h3>
-                                <p>$12.000</p>
-                            </div>
-
-                            <div class="menu-card">
-                                <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=500" alt="Sopa de mondongo">
-                                <h3>Sopa de mondongo</h3>
-                                <p>$14.000</p>
-                            </div>
-
-                            <div class="menu-card">
-                                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500" alt="Papas Rellenas">
-                                <h3>Papas Rellenas</h3>
-                                <p>$4.500</p>
-                            </div>
-
-                            </div> 
-
-                        <button class="menu-arrow next" onclick="moveMenu(1)" aria-label="Siguiente">&#10095;</button>
+    <section class="hero">
+        <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4" class="d-block w-100" alt="Restaurante">
+                    <div class="carousel-caption">
+                        <h1>Bienvenido a Apetitos</h1>
+                        <p>Sabores que alegran tu día</p>
                     </div>
-                </section>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://images.unsplash.com/photo-1555244162-803834f70033" class="d-block w-100" alt="Buffet">
+                    <div class="carousel-caption">
+                        <h1>Eventos especiales</h1>
+                        <p>Disfruta con familia y amigos</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836" class="d-block w-100" alt="Comida">
+                    <div class="carousel-caption">
+                        <h1>Comida para días especiales</h1>
+                        <p>Hecho con amor</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+    </section>
+
+    <section class="menu-section">
+        <a class="btn-pedir" href="https://wa.me/573105924616?text=Hola%20Apetitos,%20me%20gustaría%20hacer%20un%20pedido" target="_blank">
+            PEDIR
+        </a>
+
+        <div class="menu-outer-wrapper">
+            <div class="menu-wrapper">
+                <div class="menu-border">
+                    <div id="menu">
+                        <h2>Menú</h2>
+                        
+                        <div class="menu-slider-wrapper">
+                            <button class="menu-arrow prev" onclick="moveMenu(-1)" aria-label="Anterior">&#10094;</button>
+
+                            <div class="menu-grid" id="menuGrid">
+                                <div class="menu-card">
+                                    <img src="https://images.unsplash.com/photo-1628592102751-ba83b0314276?w=500" alt="Empanada">
+                                    <h3>Empanada</h3>
+                                    <p>$3.500</p>
+                                </div>
+                                <div class="menu-card">
+                                    <img src="https://images.unsplash.com/photo-1541518763669-279f00edba14?w=500" alt="Carimañola">
+                                    <h3>Carimañola</h3>
+                                    <p>$4.000</p>
+                                </div>
+                                <div class="menu-card">
+                                    <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=500" alt="Arepa de huevo">
+                                    <h3>Arepa de huevo</h3>
+                                    <p>$5.000</p>
+                                </div>
+                                <div class="menu-card">
+                                    <img src="https://images.unsplash.com/photo-1553530666-ba11a7da3888?w=500" alt="Jugo de mora">
+                                    <h3>Jugo de mora</h3>
+                                    <p>$4.000</p>
+                                </div>
+                                <div class="menu-card">
+                                    <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=500" alt="Almuerzo seco">
+                                    <h3>Almuerzo seco</h3>
+                                    <p>$12.000</p>
+                                </div>
+                                <div class="menu-card">
+                                    <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=500" alt="Sopa de mondongo">
+                                    <h3>Sopa de mondongo</h3>
+                                    <p>$14.000</p>
+                                </div>
+                                <div class="menu-card">
+                                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500" alt="Papas Rellenas">
+                                    <h3>Papas Rellenas</h3>
+                                    <p>$4.500</p>
+                                </div>
+                            </div>
+
+                            <button class="menu-arrow next" onclick="moveMenu(1)" aria-label="Siguiente">&#10095;</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="app.js"></script> 
+    <footer class="footer-brand">
+        <div class="footer-content">
+            <div class="brand-credits">
+                <img src="logo/IFCODESHIELD.png" alt="IFCODE SHIELD" class="footer-logo">
+                <div class="brand-text">
+                    <p class="developed-by">Desarrollado con ❤️ por</p>
+                    <p class="brand-name"><span class="highlight-code">&lt;I-F&gt;</span> CODE</p>
+                    <p class="digital-solutions"> digital solutions</p>
+                </div>
+            </div>
+            <div class="contact-fast">
+                <a href="mailto:m4r7uu.dev@gmail.com" class="footer-link">Contacto</a>
+                <a href="https://github.com/m4r7uu" target="_blank" class="footer-link">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script> 
+
 </body>
 </html>
